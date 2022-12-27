@@ -5,7 +5,7 @@
   <p align="center">
     An interpretable multi-task learning neural network for single cell-multi-modality biology
     <br />
-    <a href="https://github.com/LiuLab-Bioelectronics-Harvard/UnitedNet/UnitedNet.pdf"><strong>Explore the manuscript »</strong></a>
+    <a href="https://www.biorxiv.org/content/10.1101/2022.06.03.494730v1.full.pdf"><strong>Explore the manuscript »</strong></a>
     <br />
     <br />
     <a href="https://github.com/LiuLab-Bioelectronics-Harvard/UnitedNet/notebooks">View Demo</a>
