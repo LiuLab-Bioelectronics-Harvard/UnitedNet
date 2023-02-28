@@ -3,7 +3,7 @@
 <h3 align="center">UnitedNet</h3>
 
   <p align="center">
-    An interpretable multi-task learning neural network for single cell-multi-modality biology
+    Explainable multi-task learning for multi-modality biological data analysis
     <br />
     <a href="https://www.biorxiv.org/content/10.1101/2022.06.03.494730v1.full.pdf"><strong>Explore the manuscript (A new version will be uploaded soon.)
 </strong></a>
@@ -33,6 +33,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#Compatibility with Google Colab">Compatibility with Google Colab</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -131,8 +132,14 @@ _For more implementation details, please refer to the manuscript_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Compatibility with Google Colab -->
+## Compatibility with Google Colab
+For better running of the code, we also recommend you to use [Google Colab](https://colab.research.google.com/) to explore the UnitedNet.
+Google Colab support cloud computing with free GPU, which can significantly increase the training efficiency.
+We have made our code compatible with Google Colab here. We note that because of the inherent randomness in deep neural network training,
+the results could be slightly different as shown in the paper but should be mostly similar.
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
