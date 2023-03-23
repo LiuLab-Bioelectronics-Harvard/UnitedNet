@@ -86,9 +86,6 @@ please specify in the code with
 <!-- USAGE EXAMPLES -->
 ## Usage
 As for demonstration, we have provided four detailed example jupyter notebooks to reproduce the results in the manuscript.
-* A patch-seq dataset has been included in the source code. 
-For more data, please download all the example data from the Google Drive:
-https://drive.google.com/drive/folders/1Aj01ufOiDrdCRYe_7wvLAC9tUs1LGzGj?usp=sharing 
 * Please find all the notebooks to analyze the data in ./notebooks
 
 Specifically, UnitedNet take the [AnnData](https://anndata.readthedocs.io/en/latest/) as input. It only takes few line of codes to run
