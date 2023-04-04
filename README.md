@@ -7,10 +7,6 @@
     <br />
     <a href="https://www.biorxiv.org/content/10.1101/2022.06.03.494730v1.full.pdf"><strong>Explore the manuscript (A new version will be uploaded soon.)
 </strong></a>
-    <br />    
-    <a href="https://github.com/LiuLab-Bioelectronics-Harvard/UnitedNet/notebooks">View Demo</a>
-    <br />
-    
   </p>
 </div>
 
@@ -52,8 +48,9 @@ Current biotechnologies can simultaneously measure multiple high-dimensional mod
 ### Built With
 
 * python 3.7
-* jupyter notebook
 * pytorch 1.11
+* jupyter notebook
+* PyCharm
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -68,10 +65,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* run the following command line to install all the required packages
-  ```sh
-  pip install -r ./requirements.txt
-  ```
 * we recommend to use GPU for faster training. However, when a GPU is not available,
 please specify in the code with
   ```sh
@@ -151,6 +144,11 @@ Distributed under the GPL-3.0 license. See `LICENSE.txt` for more information.
 ## Contact
 
 Xin Tang - xintang@g.harvard.edu
+
+Jiawei Zhang - zhan4362@umn.edu
+
+Yichun He - yichunhe@g.harvard.edu
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

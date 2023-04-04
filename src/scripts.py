@@ -160,18 +160,6 @@ class Schedule:
                 ]
 
             self.best_loss_term = str_translation_loss
-        if name == str_all_supervised:
-            self.parameters = chain.from_iterable(
-                [
-                    model.encoders.parameters(),
-                    model.decoders.parameters(),
-                    model.latent_projector.parameters(),
-                    model.discriminators.parameters(),
-                    model.fusers.parameters(),
-                    model.projectors.parameters(),
-                    model.clusters.parameters(),
-                ]
-            )
             self.optimizer = optim.Adam(self.parameters, lr=model.config[str_lr], )
 
             self.losses = [
