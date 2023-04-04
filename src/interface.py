@@ -6,31 +6,19 @@ import random
 import torch
 from sklearn.utils import class_weight
 
-from src.data import create_dataloader, create_joint_dataloader, set_seed
+from src.data import create_dataloader, create_joint_dataloader
 from src.scripts import *
 from src.configs import *
 from src.constants import *
 from src.modules import Model,kaiming_init_weights
 
-def setup_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    np.random.seed(seed)
-    random.seed(seed)
-
-setup_seed(seed)  # 27
-
 class UnitedNet:
-    setup_seed(seed)
     def __init__(self, save_path=None, device="cpu", technique=default_config):
         if save_path is not None:
             os.makedirs(save_path, exist_ok=True)
         self.save_path = save_path
-        set_seed(np, random, torch)
         self.device = device
         self._create_model_for_technique(technique)
-        setup_seed(seed)
 
     def _set_device(self):
         self.model = self.model.to(device=self.device)

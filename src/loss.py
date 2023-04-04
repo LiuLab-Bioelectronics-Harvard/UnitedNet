@@ -6,14 +6,6 @@ from src.constants import *
 import random
 import numpy as np
 
-def setup_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    np.random.seed(seed)
-    random.seed(seed)
-
-setup_seed(seed)
 
 class BaseLoss:
     eps = 1e-9
@@ -77,9 +69,6 @@ class DDCLoss(BaseLoss):
     """
 
     name = str_ddc_loss
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
 
     def __init__(self, model,loss_weight):
         super().__init__(model)

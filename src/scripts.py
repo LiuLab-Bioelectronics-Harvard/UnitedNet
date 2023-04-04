@@ -15,17 +15,6 @@ import torch
 import random
 
 
-def setup_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    np.random.seed(seed)
-    random.seed(seed)
-
-
-setup_seed(seed)  # 27
-
-
 def sum_value_lists(list0, list1):
     if len(list0) == 0:
         return list1
@@ -235,9 +224,6 @@ def run_schedule(runner):
             verbose=False
     ):
         if train_model and schedule is not None and schedule.name == str_classification:
-            torch.manual_seed(seed)
-            torch.cuda.manual_seed(seed)
-            torch.cuda.manual_seed_all(seed)
             for _ in range(len(dataloader.dataset.modalities)*2):
                 outputs = runner(
                     model,
@@ -273,9 +259,6 @@ def run_through_dataloader(
     all_outputs = []
     all_losses = {}
 
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.manual_seed(seed)
     for modalities, labels in dataloader:
         outputs = model(modalities, labels)
         if schedule is not None:

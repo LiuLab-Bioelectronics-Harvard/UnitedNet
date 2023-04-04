@@ -89,4 +89,3 @@ str_transfer_loss_weight = "transfer_loss_weight"
 
 str_noise = "noise_level"
 
-seed = 3407

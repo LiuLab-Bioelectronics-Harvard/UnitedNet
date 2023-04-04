@@ -8,15 +8,6 @@ import torch.utils.data as D
 from src.constants import *
 import pickle
 
-
-def set_seed(n, r, t):
-    t.manual_seed(seed)
-    t.cuda.manual_seed(seed)
-    t.cuda.manual_seed_all(seed)
-    n.random.seed(seed)
-    r.seed(seed)
-
-
 class Dataset(D.Dataset):
     def __init__(self, modalities, labels):
         super().__init__()
@@ -37,13 +28,11 @@ class Dataset(D.Dataset):
 
 def create_dataloader_from_dataset(dataset, shuffle, batch_size):
     g = torch.Generator()
-    g.manual_seed(seed)
 
     return D.DataLoader(
         dataset,
         batch_size=batch_size,
         shuffle=shuffle,
-        worker_init_fn=lambda _: set_seed(numpy, random, torch),
         generator=g,
     )
 
