@@ -281,23 +281,6 @@ def run_through_dataloader(
                 if hasattr(model, 'potential_best_head'):
                     model.potential_best_head.append(current_best_head)
                 model.best_head = current_best_head
-                # model.best_head = np.argmax(np.bincount(model.potential_best_head))
-                # this code was used to adapt the fast change of the best head
-                # if model.best_head != current_best_head:
-                #     if model.head_flag >= 2:
-                #         model.best_head = current_best_head
-                #         model.potential_best_head = current_best_head
-                #         model.head_flag = torch.zeros(1)#0
-                #     else:
-                #         if model.potential_best_head == current_best_head:
-                #             model.head_flag += torch.ones(1)#1
-                #         else:
-                #             model.potential_best_head = current_best_head
-                #             model.head_flag = torch.zeros(1)#0
-                # else:
-                #     model.potential_best_head = current_best_head
-                #     model.head_flag = torch.zeros(1)#0
-
                 break
 
     if best_model_path is not None:
@@ -348,7 +331,6 @@ def evalaute_outputs(dataloader, outputs):
         ]
         for modality, translations in zip(dataset.modalities, translations_outputs)
     ]
-    # accuracy = np.sum(labels == predictions) / predictions.shape[0]
     accuracy, conf_mat = ordered_cmat(labels,predictions)
     metrics = {
         "r2": np.array(r2s),
@@ -366,7 +348,6 @@ def get_schedules_by_task(task, model):
     schedules_by_task = {
         str_supervised_group_identification: [str_translation, str_classification, ],
         str_unsupervised_group_identification: [str_translation, str_clustering],
-        # str_cross_model_prediction: [str_classification, str_translation],
         str_cross_model_prediction_clas: [str_classification, str_translation],
         str_cross_model_prediction_clus: [str_clustering, str_translation],
         str_cross_model_prediction: [str_translation],

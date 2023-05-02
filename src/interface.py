@@ -140,7 +140,5 @@ class UnitedNet:
         return run_predict_label(self.model, dataloader)
 
     def load_model(self, path, device='cuda:0'):
-        #TODO delete here!!!
         self.model = torch.load(path,map_location=torch.device(device))
-        # self.model.device_in_use = 'cpu'
 

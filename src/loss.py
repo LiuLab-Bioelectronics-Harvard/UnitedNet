@@ -11,7 +11,7 @@ class BaseLoss:
     eps = 1e-9
 
     def __init__(self, model):
-        self.n_output = len(list(model.clusters[0].parameters())[0]) #len(model.class_weights)
+        self.n_output = len(list(model.clusters[0].parameters())[0])
         self.weight = 1
 
 

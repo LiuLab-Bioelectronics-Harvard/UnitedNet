@@ -28,7 +28,7 @@ def type_relevance_chord_plot(shap_values, p_fe, p_fe_idx, p_l_less, predict_lab
     scaler = MinMaxScaler()
     all_feature_num = sum([len(pp) for pp in p_fe])
     all_type_features = {}
-    for ls_t in all_less_type:  # ['Vip']:
+    for ls_t in all_less_type:
         c_v = []
         node_names = []
         c_v_in = []
@@ -116,7 +116,7 @@ def markers_chord_plot(adatas_all, predict_label, predict_label_anno, major_dict
                        subset_feature=True):
     pr_ty_dict = dict(zip(predict_label, predict_label_anno))
     p_l = np.vectorize(pr_ty_dict.get)(predict_label)
-    p_l_less = np.vectorize(major_dict.get)(p_l)  # np.array([ct.split('-')[0] for ct in p_l])
+    p_l_less = np.vectorize(major_dict.get)(p_l)
 
     p_fe = []
     p_fe_idx = []
@@ -125,13 +125,6 @@ def markers_chord_plot(adatas_all, predict_label, predict_label_anno, major_dict
         ad_x.obs['predict_sub'] = p_l
         ad_x.obs['predict_sub_less'] = p_l_less
         if subset_feature:
-            # if 'rank_genes_groups' not in ad_x.uns.keys():
-            #     sc.tl.rank_genes_groups(ad_x, 'predict_sub', method='wilcoxon')
-            # marker_names = pd.DataFrame(ad_x.uns['rank_genes_groups']['names']).head(
-            #     potential_features).to_numpy().ravel(order='F')
-            # _, idx = list(np.unique(marker_names, return_index=True))
-            # markers = marker_names[np.sort(idx)]
-            # markers, markers_idx, _ = np.intersect1d(ad_x.var_names, markers, return_indices=True)
             sc.pp.highly_variable_genes(ad_x)
             markers = ad_x.var_names[ad_x.var['highly_variable']].values
             markers_idx = np.where(ad_x.var['highly_variable'])[0]

@@ -90,7 +90,6 @@ class Model(nn.Module):
         self.noise_level = config[str_noise]
         self.register_buffer(str_best_head, torch.tensor(0, dtype=torch.long))
         self.potential_best_head = []
-        # self.register_buffer("potential_best_head",  torch.tensor(0, dtype=torch.long))
         self.register_buffer("head_flag", torch.tensor(0, dtype=torch.long))
         self.encoders = nn.ModuleList(
             [MLP(encoder) for encoder in config[str_encoders]]
@@ -204,7 +203,6 @@ class Model(nn.Module):
         ]
 
         return (
-            # self.translations,
             [
                 [trans_lb if self.training else trans_lb.cpu().numpy() for trans_lb in trans_la] for
                 trans_la in self.translations
@@ -250,7 +248,7 @@ class submodel_clus(torch.nn.Module):
     def __init__(self, bigmodel):
         super(submodel_clus, self).__init__()
         self.encoders = bigmodel.encoders
-        self.fusers = bigmodel.fusers[bigmodel.best_head].weights  # [fs.weights for fs in bigmodel.fusers]
+        self.fusers = bigmodel.fusers[bigmodel.best_head].weights
         self.projectors = bigmodel.projectors[bigmodel.best_head]
         self.n_head = bigmodel.n_head
         self.clusters = bigmodel.clusters[bigmodel.best_head]
