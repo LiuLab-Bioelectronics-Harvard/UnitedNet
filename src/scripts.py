@@ -149,19 +149,6 @@ class Schedule:
                 ]
 
             self.best_loss_term = str_translation_loss
-            self.optimizer = optim.Adam(self.parameters, lr=model.config[str_lr], )
-
-            self.losses = [
-                ContrastiveLoss(model, loss_weight),
-                ReconstructionLoss(model, loss_weight),
-                TranslationLoss(model, loss_weight),
-                DiscriminatorLoss(model, loss_weight),
-                GeneratorLoss(model, loss_weight),
-                SelfEntropyLoss(model, loss_weight),
-                CrossEntropyLoss(model, loss_weight)
-            ]
-
-            self.best_loss_term = str_translation_loss
 
 
     def step(self, model, train_model):
